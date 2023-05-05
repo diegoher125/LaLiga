@@ -2,8 +2,10 @@ package main.java.ieseuropa;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Conexion {
 	
@@ -40,6 +42,27 @@ public class Conexion {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public ArrayList<Partido> cargarPartidos(String query){
+		ArrayList<Partido> partidos = new ArrayList<>();
+		try {
+			Statement st = conection_.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				int idPartido, golesLocal, golesVisitante;
+				String local, visitante;
+				idPartido = rs.getInt("idPartido");
+				local = rs.getString("local");
+				golesLocal = rs.getInt("golesLocal");
+				visitante = rs.getString("visitante");
+				golesVisitante = rs.getInt("golesVisitante");
+				partidos.add(new Partido(idPartido, local, golesLocal, visitante, golesVisitante));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return partidos;
 	}
 
 }

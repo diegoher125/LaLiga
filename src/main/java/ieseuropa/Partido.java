@@ -23,6 +23,10 @@ public class Partido {
 		this.visitante = visitante;
 		this.golesVisitante = golesVisitante;
 	}
+	
+	public Partido(int idPartido) {
+		this.idPartido = idPartido;
+	}
 
 	public int getIdPartido() {
 		return idPartido;
