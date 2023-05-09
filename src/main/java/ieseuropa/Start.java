@@ -73,7 +73,7 @@ public class Start {
 			}
 			break;
 		case 8:
-			System.out.println(conexion.calculoPartidos("SELECT count(idPartido) as idPartido FROM partidos;"));
+			System.out.println(conexion.cargarInt("SELECT count(idPartido) as idPartido FROM partidos;"));
 			break;
 		}
 	}
