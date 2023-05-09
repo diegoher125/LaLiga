@@ -65,7 +65,7 @@ public class Conexion {
 		return partidos;
 	}
 	
-	public int calculoPartidos(String query){
+	public int cargarInt(String query){
 		int calculo = 0;
 		try {
 			Statement st = conection_.createStatement();
