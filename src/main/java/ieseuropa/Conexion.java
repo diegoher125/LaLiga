@@ -64,5 +64,19 @@ public class Conexion {
 		}
 		return partidos;
 	}
+	
+	public int calculoPartidos(String query){
+		int calculo = 0;
+		try {
+			Statement st = conection_.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()) {
+				calculo = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return calculo;
+	}
 
 }

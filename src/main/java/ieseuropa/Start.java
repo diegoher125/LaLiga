@@ -72,6 +72,9 @@ public class Start {
 				}
 			}
 			break;
+		case 8:
+			System.out.println(conexion.calculoPartidos("SELECT count(idPartido) as idPartido FROM partidos;"));
+			break;
 		}
 	}
 
@@ -86,10 +89,11 @@ public class Start {
 		 * conexion.ejecutarQuery(partido2.eliminarPartido());
 		 */
 		int opcion = 1;
-		while (opcion > 0 && opcion < 8) {
+		while (opcion > 0 && opcion < 9) {
 			opcion = pedirInt("Indique la opcion:\n" + "1.Nuevo partido\n" + "2.Actualizar partido\n"
 					+ "3.Eliminar partido\n" + "4.Listar partidos\n" + "5.Listar partidos de un equipo\n"
-					+ "6.Listar partidos si tienen x goles o mas\n" + "7.Listar partidos que gana un equipo\n");
+					+ "6.Listar partidos si tienen x goles o mas\n" + "7.Listar partidos que gana un equipo\n"
+					+ "8.Nuemro de partidos");
 			menu(opcion, conexion);
 		}
 	}
